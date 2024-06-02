@@ -1,0 +1,12 @@
+.page {
+    &__content {
+        display: flex;
+        background: #f6f9fc;
+        padding: 2.5rem 1rem;    
+    }
+
+    &__sales {
+        flex: 2;
+        margin-left: 1rem;
+    }
+}
