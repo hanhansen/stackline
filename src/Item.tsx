@@ -10,7 +10,7 @@ const ItemDetails = (): JSX.Element | null => {
   return (
     <div className="item">
       <div className="item__content">
-        <img className="item__image" src={image} />
+        <img className="item__image" src={image} alt={title} />
         <div className="item__details">
           <h3 className="item__title">{title}</h3>
           <span className="item__subtitle">{subtitle}</span>
