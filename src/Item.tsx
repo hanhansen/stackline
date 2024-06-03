@@ -1,15 +1,12 @@
-import React, { FC } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { IRootState } from "./redux/store";
+
 import "./Item.scss";
 
-type ItemDetailsProps = {
-  data: { [key: string]: any } | null;
-};
-
-const ItemDetails: FC<ItemDetailsProps> = ({ data }): JSX.Element | null => {
-  if (!data) {
-    return null;
-  }
-  const { title, image, subtitle, tags } = data;
+const ItemDetails = (): JSX.Element | null => {
+  const { items } = useSelector((state: IRootState) => state.items);
+  const { title, image, subtitle, tags } = items?.[0];
   return (
     <div className="item">
       <div className="item__content">

@@ -1,0 +1,31 @@
+.salesTable {
+  background: #fff;
+  margin-top: 4rem;
+  border-radius: 4px;
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  &__header,
+  &__body-row {
+    border-bottom: 1px solid #eee;
+  }
+  &__header-row {
+    text-transform: uppercase;
+  }
+
+  &__header-column-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__header-column,
+  &__body-column {
+    padding: 1rem;
+    width: 20%;
+    color: #68778e;
+  }
+}

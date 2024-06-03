@@ -1,13 +1,15 @@
-import React, { FC, useMemo } from "react";
+import React, { useMemo } from "react";
 import { LineChart, Line, XAxis, ResponsiveContainer } from "recharts";
+import { useSelector } from "react-redux";
+import { IRootState } from "./redux/store";
+
 import "./RetailSales.scss";
 
-type RetailSalesProps = {
-  salesData: { [key: string]: string | number }[];
-};
-const RetailSales: FC<RetailSalesProps> = ({ salesData }) => {
+const RetailSales = () => {
+  const { items } = useSelector((state: IRootState) => state.items);
   const formattedData = useMemo(() => {
-    return (salesData ?? []).map((item) => {
+    const [item] = items;
+    return (item?.sales ?? []).map((item: any) => {
       const month = new Date(item.weekEnding).toLocaleString("default", {
         month: "short",
       });
@@ -16,11 +18,13 @@ const RetailSales: FC<RetailSalesProps> = ({ salesData }) => {
         month,
       };
     });
-  }, [salesData]);
+  }, [items]);
 
   return (
     <div className="retailSales">
-      <ResponsiveContainer width="100%" height="100%">
+      <div className="retailSales__title">Retail Sales</div>
+
+      <ResponsiveContainer width="100%" height="90%">
         <LineChart data={formattedData}>
           <XAxis
             dataKey="month"
